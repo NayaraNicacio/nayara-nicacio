@@ -1,33 +1,30 @@
 class Queue {
-  elements
-  constructor(){
-    this.elements = [1,5,6,2,3,4,8]
+  constructor() {
+    this.elements = [1, 5, 6, 2, 3, 4, 8];
+    this.size = this.elements.length;
   }
-  size
-  constructor(){
-    this.size = []
-    return this.elements.length;
+
+  add(element) {
+    this.elements.push(element);
+    this.size++;
   }
-  add
-  constructor(){
-    this.add = []
-    add(element) {
-      this.elements.push(element);
+
+  peek() {
+    if (this.size > 0) {
+      return this.elements[0];
+    } else {
+      return undefined; // or throw an error, depending on desired behavior
     }
   }
-  peek
-  constructor(){
-    this.peek = []
-  }
 
-  dequeue
-  constructor(){
-    this.dequeue = []  
-    return this.elements.shift();
+  dequeue() {
+    if (this.size > 0) {
+      this.size--;
+      return this.elements.shift();
+    } else {
+      return undefined; // or throw an error, depending on desired behavior
+    }
   }
-  }
-
-
 }
 
-module.exports = Queue
+module.exports = Queue;
